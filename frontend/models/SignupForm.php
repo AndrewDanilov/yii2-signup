@@ -1,9 +1,9 @@
 <?php
 namespace frontend\models;
 
+use common\models\User;
 use Yii;
 use yii\base\Model;
-use common\models\User;
 
 /**
  * Signup form
@@ -55,7 +55,9 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
-        $user->password = $this->password;
+        // todo: this needs to be changed depends on your password realization
+        // i.e.: $user->password = $this->password;
+        $user->setPassword($this->password);
         $user->generateEmailVerificationToken();
 
         return $user->save() && $this->sendEmail($user);

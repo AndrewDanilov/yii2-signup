@@ -46,7 +46,8 @@ class EmailVerificationForm extends Model
     {
         $user = $this->_user;
         $user->status = User::STATUS_ACTIVE;
-        $user->setTrialTariff();
+        // todo: here you can add some 'after verify' logic, i.e. setting up user tariff
+        // $user->setTrialTariff();
         return $user->save(false) ? $user : null;
     }
 }

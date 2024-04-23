@@ -15,4 +15,6 @@ mv tmp/* .
 rm -rf tmp-dir
 ```
 
+Check up _todos_ in code, to adopt template to your app realization.
+
 Then use frontend/SignupController.php as usual controller.

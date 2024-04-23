@@ -2,8 +2,8 @@
 namespace frontend\models;
 
 use common\models\User;
-use yii\base\Model;
 use Yii;
+use yii\base\Model;
 
 /**
  * Password reset form
@@ -63,7 +63,9 @@ class PasswordResetForm extends Model
     public function resetPassword()
     {
         $user = $this->_user;
-        $user->password = $this->password;
+        // todo: this needs to be changed depends on your password realization
+        // i.e.: $user->password = $this->password;
+        $user->setPassword($this->password);
         $user->removePasswordResetToken();
         $user->generateAuthKey();
 
